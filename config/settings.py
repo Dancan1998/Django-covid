@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'six',
     'covid',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
