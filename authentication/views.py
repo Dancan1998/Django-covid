@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import View, ListView
+from django.views.generic import View
 from django.contrib import messages
 from validate_email import validate_email
 from django.contrib.auth import get_user_model
@@ -13,12 +13,10 @@ from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 import threading
-import requests
 User = get_user_model()
 
 
 class EmailThread(threading.Thread):
-
     def __init__(self, email_message):
         self.email_message = email_message
         threading.Thread.__init__(self)
@@ -126,7 +124,7 @@ class LoginView(View):
         if context['has_error']:
             return render(request, 'authentication/login.html', status=401, context=context)
         login(request, user)
-        return redirect('authentication:home')
+        return redirect('covid:home')
 
 
 class ActivateAccountView(View):
@@ -147,24 +145,24 @@ class ActivateAccountView(View):
         return render(request, "authentication/activate_failed.html", status=401)
 
 
-class HomeView(ListView):
-    paginate_by = 10
+# class HomeView(View):
+#     paginate_by = 10
 
-    def get(self, request):
-        response = None
-        globalSummary = None
-        countries = None
-        try:
-            response = requests.get('https://api.covid19api.com/summary')
-            globalSummary = response.json()['Global']
-            countries = response.json()['Countries']
-        except ConnectionError as e:
-            pass
-        context = {
-            'globalSummary': globalSummary,
-            'countries': countries
-        }
-        return render(request, "authentication/home.html", context)
+#     def get(self, request):
+#         response = None
+#         globalSummary = None
+#         countries = None
+#         try:
+#             response = requests.get('https://api.covid19api.com/summary')
+#             globalSummary = response.json()['Global']
+#             countries = response.json()['Countries']
+#         except ConnectionError as e:
+#             pass
+#         context = {
+#             'globalSummary': globalSummary,
+#             'countries': countries
+#         }
+#         return render(request, "authentication/home.html", context)
 
 
 class LogoutView(View):

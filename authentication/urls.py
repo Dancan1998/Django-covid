@@ -11,7 +11,8 @@ urlpatterns = [
          ActivateAccountView.as_view(), name="activate"),
     path('setnewpassword/<uidb64>/<token>',
          SetNewPassword.as_view(), name="set-new-password"),
-    path('', login_required(HomeView.as_view()), name="home"),
+    #     path('', login_required(HomeView.as_view()), name="home"),
     path('logout', LogoutView.as_view(), name="logout"),
-    path('request-rest-email', RequestResetEmailView.as_view(), name="request-reset-email"),
+    path('request-rest-email', RequestResetEmailView.as_view(),
+         name="request-reset-email"),
 ]
