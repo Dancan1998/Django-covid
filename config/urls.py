@@ -9,6 +9,6 @@ urlpatterns = [
     path("", include('covid.urls', namespace='covid')),
 ]
 
-if settings.DEBUG == True:
+if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
