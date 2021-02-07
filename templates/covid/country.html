@@ -1,3 +1,15 @@
-{% extends "base.html" %} {% block content %} {% for country in queryset %}
-<a href="{% url 'covid:country-info' country.pk %}">{{country}}</a>
-{% endfor %} {% endblock content %}
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">Filter by countries</h1>
+    <div class="col">
+      {% for country in queryset %}
+      <div class="country">
+        {{forloop.counter}}
+        <a href="{% url 'covid:country-info' country.pk %}">{{country}}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,4 +1,45 @@
 {% extends "base.html" %} {% block content %}
-<h2>country info -- {{countinfo.countryyy.name}}</h2>
-<h3>{{countinfo.population}}</h3>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center">
+        Country - {{countinfo.countryyy.name}}
+        <i class="{{ countinfo.countryyy.flag_css }} "></i>
+      </h1>
+      <div class="info">
+        <h4>Total Cases <span>{{countinfo.total_cases}}</span></h4>
+        <h4>Total Deaths <span>{{countinfo.total_deaths}}</span></h4>
+        <h4>New Deaths <span>{{countinfo.new_deaths}}</span></h4>
+        <h4>ICU Patients <span>{{countinfo.icu_patients}}</span></h4>
+        <h4>Population <span>{{countinfo.population}}</span></h4>
+        <h4>
+          Population Density <span>{{countinfo.population_density}}</span>
+        </h4>
+        <h4>Median Age <span>{{countinfo.median_age}}</span></h4>
+        <h4>Age 65 Older <span>{{countinfo.aged_65_older}}</span></h4>
+        <h4>Age 70 Older <span>{{countinfo.aged_70_older}}</span></h4>
+        <h4>GDP Per Capita <span>{{countinfo.gdp_per_capita}}</span></h4>
+        <h4>Extreme Poverty <span>{{countinfo.exteme_poverty}}</span></h4>
+        <h4>
+          Diabetes Prevalence <span>{{countinfo.diabetes_prevalence}}</span>
+        </h4>
+        <h4>Female Smokers <span>{{countinfo.female_smokers}}</span></h4>
+        <h4>Male Smokers <span>{{countinfo.male_smokers}}</span></h4>
+        <h4>
+          Hand washing facilities
+          <span>{{countinfo.handwashing_facilities}}</span>
+        </h4>
+        <h4>
+          Hospital Beds Per Thousand
+          <span>{{countinfo.hospital_beds_per_thousand}}</span>
+        </h4>
+        <h4>Life Expectancy <span>{{countinfo.life_expectancy}}</span></h4>
+        <h4>
+          Human Development Index
+          <span>{{countinfo.human_development_index}}</span>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock content %}
