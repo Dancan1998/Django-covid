@@ -15,7 +15,7 @@ class Continent(models.Model):
 class Country(models.Model):
     countryyy = CountryField()
     continent = models.ForeignKey(
-        Continent, on_delete=models.CASCADE, related_name='continent')
+        Continent, on_delete=models.CASCADE)
     population = models.IntegerField()
     population_density = models.DecimalField(max_digits=5, decimal_places=3)
     median_age = models.DecimalField(max_digits=5, decimal_places=3)

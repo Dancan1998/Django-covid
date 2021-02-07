@@ -1,0 +1,3 @@
+{% extends "base.html" %} {% block content %} {% for country in queryset %}
+<a href="{% url 'covid:country-info' country.pk %}">{{country}}</a>
+{% endfor %} {% endblock content %}

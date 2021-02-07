@@ -1,3 +1,5 @@
 {% extends "base.html" %} {% block content %}
 <h1>Here is covid home</h1>
-{% endblock content %}
+{% for cont in continents %}
+<a href="{% url 'covid:countries' cont.pk %}">{{cont.name}}</a>
+{% endfor %} {% endblock content %}
