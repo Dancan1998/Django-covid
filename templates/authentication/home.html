@@ -1,0 +1,72 @@
+{% extends "base.html" %} {% block title %}
+<title>Home</title>
+{% endblock title %} {% block content %}  
+<div class="container-fluid">
+  <div class="row">
+    <div class="col d-flex flex-wrap justify-content-between">
+      <div class="card m-2 bg-info text-light" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">New Confirmed</h5>
+          <p class="card-text">{{globalSummary.NewConfirmed}}</p>
+        </div>
+      </div>
+      <div class="card m-2 bg-primary text-light" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Total Confirmed</h5>
+          <p class="card-text">{{globalSummary.TotalConfirmed}}</p>
+        </div>
+      </div>
+      <div class="card m-2 bg-info text-light" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">New Deaths</h5>
+          <p class="card-text">{{globalSummary.NewDeaths}}</p>
+        </div>
+      </div>
+      <div class="card m-2 bg-danger text-light" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Total Deaths</h5>
+          <p class="card-text">{{globalSummary.TotalDeaths}}</p>
+        </div>
+      </div>
+      <div class="card m-2 bg-info text-light" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">New Recovered</h5>
+          <p class="card-text">{{globalSummary.NewRecovered}}</p>
+        </div>
+      </div>
+      <div class="card m-2 bg-success text-light" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Total Recovered</h5>
+          <p class="card-text">{{globalSummary.TotalRecovered}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <table class="table table-primary">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Country</th>
+          <th>Total Confirmed</th>
+          <th>Total Deaths</th>
+          <th>Total Recovered</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in countries %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{c.Country}}</td>
+          <td>{{c.TotalConfirmed}}</td>
+          <td>{{c.TotalDeaths}}</td>
+          <td>{{c.TotalRecovered}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,22 @@
+language: python
+rvm:
+ - 2.2
+ - jruby
+
+ python:
+    - "3.8.2"
+env:
+    - SECRET_KEY='TEST'
+services:
+   - postgresql
+install:
+    - pip install
+
+script:
+    - python manage.py test
+
+# script:
+#     -  coverage run --source='authentication' manage.py test && coverage report && coverage html
+# after_success:
+#     - codecov
+

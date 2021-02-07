@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Register</title>
+{% endblock title %} {% block content %}
+<div class="container">
+  <div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Sign Up</h5>
+            {% include "partials/_flash_mess.html" %}
+            <form
+              action="{% url 'authentication:register' %}"
+              method="POST"
+              class="mt-3"
+            >
+              {% csrf_token %}
+              <div class="form-group mt-3">
+                <input
+                  type="email"
+                  name="email"
+                  value="{{data.email}}"
+                  placeholder="Email"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group mt-3">
+                <input
+                  type="text"
+                  name="name"
+                  value="{{data.name}}"
+                  placeholder="Full Name"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group mt-3">
+                <input
+                  type="text"
+                  name="username"
+                  value="{{data.username}}"
+                  placeholder="Username"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group mt-3">
+                <input
+                  type="password"
+                  name="password"
+                  value=""
+                  placeholder="Password"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group mt-3">
+                <input
+                  type="password"
+                  name="password2"
+                  value=""
+                  placeholder="Confirm Password"
+                  class="form-control"
+                />
+              </div>
+              <input
+                type="submit"
+                value="Register"
+                class="btn btn-primary mt-3 btn-block"
+              />
+            </form>
+          </div>
+        </div>
+        <div class="card mt-2">
+          <div class="card-body">
+            <p>Already have an account ? <a href="{% url "authentication:login" %}">Login</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+</div>
+{% endblock content %}
