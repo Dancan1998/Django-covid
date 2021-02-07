@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import RegisterView, LoginView, ActivateAccountView, HomeView, LogoutView, RequestResetEmailView, SetNewPassword
+from .views import RegisterView, LoginView, ActivateAccountView, LogoutView, RequestResetEmailView, SetNewPassword
 from django.contrib.auth.decorators import login_required
 
 app_name = "authentication"
